@@ -1,4 +1,5 @@
 from random import randint
+import utils
 
 objs = ["Rock", "Paper", "Scissor"]
 
@@ -8,31 +9,10 @@ playing = True
 
 while playing:
     player = input("Rock, Paper or Scissor ?    ")
-    if player == "Rock":
-        if computer == "Scissor":
-            print("You Won", player, "Beats", computer)
-        elif computer == "Paper":
-            print("You Lose", computer, "Beats", player)
-        else:
-            print("DRAW")
-    elif player == "Paper":
-        if computer == "Rock":
-            print("You Won", player, "Beats", computer)
-        elif computer == "Scissor":
-            print("You Lose", computer, "Beats", player)
-        else:
-            print("DRAW")
-    elif player == "Scissor":
-        if computer == "Paper":
-            print("You Won", player, "Beats", computer)
-        elif computer == "Rock":
-            print("You Lose", computer, "Beats", player)
-        else:
-            print("DRAW")
-    else:
-        print("Check your spelling", end="\n")
-
     computer = objs[randint(0, 2)]
+    
+    print(utils.getWinner(player, computer))
+    
     key = input(
         """
     1. To keep Playing Press Enter
